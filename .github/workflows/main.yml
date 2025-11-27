@@ -1,27 +1,27 @@
-name: Daily News Agent
+name: 5-Min AI News Agent
 
 on:
   schedule:
-    # این دستور یعنی: هر 60 دقیقه اجرا شو
     - cron: '*/5 * * * *'
-  workflow_dispatch: # این خط اجازه می‌دهد دستی هم اجرایش کنید
+  workflow_dispatch:
 
 jobs:
-  build:
+  run_bot:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'  # <--- این را تغییر دادیم
+          python-version: '3.10'
 
-      - name: Install libraries
+      - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run Agent
+      # --- بخش مهم: اینجا رمزها را به پایتون تزریق می‌کنیم ---
+      - name: Run News Script
         env:
           GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
