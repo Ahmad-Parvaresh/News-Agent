@@ -71,7 +71,7 @@ def run_news_agent():
     except Exception as e:
         print(f"Error: {e}")
         # حتی اگر ارور داد هم یک لبخند بفرست که بفهمی زنده است
-        bot.send_message(YOUR_CHAT_ID, "🙂 (Error)")
+        bot.send_message(YOUR_CHAT_ID, f"⚠️ Error Details: {e}")
 
 if __name__ == "__main__":
     run_news_agent()
