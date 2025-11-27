@@ -23,7 +23,8 @@ jobs:
       # --- بخش مهم: اینجا رمزها را به پایتون تزریق می‌کنیم ---
       - name: Run News Script
         env:
-          GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
+          # تغییر مهم: نام این متغیر را استاندارد کردیم
+          GOOGLE_API_KEY: ${{ secrets.GEMINI_KEY }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
         run: python main.py
