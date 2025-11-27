@@ -3,7 +3,7 @@ name: Daily News Agent
 on:
   schedule:
     # این دستور یعنی: هر 60 دقیقه اجرا شو
-    - cron: '* * * * */5'
+    - cron: '*/5 * * * *'
   workflow_dispatch: # این خط اجازه می‌دهد دستی هم اجرایش کنید
 
 jobs:
